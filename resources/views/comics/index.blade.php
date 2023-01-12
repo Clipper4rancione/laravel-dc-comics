@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="my-2">Software gestionale DC</h2>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -30,5 +30,7 @@
 
             </tbody>
         </table>
+
+        {{ $comics->links() }}
     </div>
 @endsection
