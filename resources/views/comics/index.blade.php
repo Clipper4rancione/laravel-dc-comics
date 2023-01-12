@@ -9,7 +9,6 @@
                     <th scope="col">Id</th>
                     <th scope="col">Titolo</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col">Serie</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -18,10 +17,12 @@
                     <tr>
                         <th scope="row">{{ $comic->id }}</th>
                         <td>{{ $comic->title }}</td>
-                        <td>{{ $comic->price }}</td>
-                        <td>{{ $comic->series }}</td>
+                        <td>€ {{ $comic->price }}</td>
                         <td>
-
+                            <a href="{{ route('comics.show', $comic) }}" class="btn btn-success"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 @empty
@@ -32,5 +33,6 @@
         </table>
 
         {{ $comics->links() }}
+
     </div>
 @endsection
