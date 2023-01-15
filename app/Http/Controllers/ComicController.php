@@ -14,7 +14,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-
+        $comics = Comic::orderBy('id', 'desc')->paginate(5);
         return view('comics.index', compact('comics'));
     }
 
@@ -40,11 +40,12 @@ class ComicController extends Controller
 
         $new_comic = new Comic();
 
-        $new_comic->title = $form_data['title'];
-        $new_comic->image = $form_data['image'];
-        $new_comic->price = $form_data['price'];
-        $new_comic->description = $form_data['description'];
+        //$new_comic->title = $form_data['title'];
+        //$new_comic->image = $form_data['image'];
+        //$new_comic->price = $form_data['price'];
+        //$new_comic->description = $form_data['description'];
 
+        $new_comic->fill($form_data);
         $new_comic->save();
 
         //dd($new_comic);
@@ -95,6 +96,8 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
