@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <h2 class="my-2">Software gestionale DC</h2>
+        <div class="container">
+            <a href="{{ route('comics.create') }}" class="btn btn-success">Aggiungi un nuovo fumetto</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
