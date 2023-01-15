@@ -22,10 +22,14 @@
                         <td>{{ $comic->title }}</td>
                         <td>€ {{ $comic->price }}</td>
                         <td>
-                            <a href="{{ route('comics.show', $comic) }}" class="btn btn-success"><i
+                            <a href="{{ route('comics.show', $comic) }}" class="btn btn-success" title="show"><i
                                     class="fa-solid fa-eye"></i></a>
                             <a href="#" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                            <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            <form action="{{ route('comics.destroy', $comic) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger"><i class="fa-solid fa-trash" title="delete"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @empty
