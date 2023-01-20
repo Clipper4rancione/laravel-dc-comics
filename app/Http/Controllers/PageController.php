@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        //$comics = Comic::orderBy('id', 'desc')->paginate(5);
+        $comics = Comic::orderBy('id', 'desc')->paginate(5);
         return view('comics.index', compact('comics'));
     }
 }
